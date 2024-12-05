@@ -15,55 +15,59 @@
       <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   
       <style>
-        body {
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-          line-height: 1.6;
-          color: #eed;
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 1rem;
-        }
-
-  /* Base content styling */
-  .blog-content {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+ /* Base content styling */
+  .blog-content, .ProseMirror {
+    color: #f4f4f4;
     line-height: 1.6;
-    color: #eed;
-    max-width: 800px;
-    margin: 0 auto;
+    min-height: 500px;
     padding: 1rem;
+    outline: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   }
 
-  /* Content spacing */
-  .blog-content p {
+  /* Add max-width only to blog-content (not editor) */
+  .blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Paragraphs */
+  .blog-content p, .ProseMirror p {
     margin: 1.5em 0;
   }
 
   /* Headers */
-  .blog-content h1 {
+  .blog-content h1, .ProseMirror h1 {
     font-size: 2em;
+    color: #f4f4f4;
     margin: 2em 0 1em;
   }
 
-  .blog-content h2 {
+  .blog-content h2, .ProseMirror h2 {
     font-size: 1.5em;
+    color: #f4f4f4;
     margin: 2em 0 1em;
   }
 
   /* Lists */
-  .blog-content ul,
-  .blog-content ol {
-    margin: 1em 0;
+  .blog-content ul, .blog-content ol,
+  .ProseMirror ul, .ProseMirror ol {
+    list-style-type: disc;
     padding-left: 2em;
+    margin: 1em 0;
   }
 
-  .blog-content li {
+  .blog-content ol, .ProseMirror ol {
+    list-style-type: decimal;
+  }
+
+  .blog-content li, .ProseMirror li {
     margin: 0;
     line-height: 1.6;
   }
 
   /* Images */
-  .blog-content img {
+  .blog-content img, .ProseMirror img {
     display: block;
     max-width: 90%;
     margin: 2em auto;
@@ -71,7 +75,7 @@
   }
 
   /* Code blocks */
-  .blog-content pre {
+  .blog-content pre, .ProseMirror pre {
     background: #2d2d2d;
     color: #fff;
     padding: 1em;
@@ -79,26 +83,28 @@
     margin: 1.5em 0;
     white-space: pre-wrap;
     overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
   }
 
-  .blog-content code {
-    background-color: #f4f4f4;
+  .blog-content code, .ProseMirror code {
+    background-color: #393939;
+    color: #f4f4f4;
     padding: 0.2em 0.4em;
     border-radius: 3px;
     font-family: 'Courier New', Courier, monospace;
   }
 
   /* Blockquotes */
-  .blog-content blockquote {
-    border-left: 3px solid #ffffff;
+  .blog-content blockquote, .ProseMirror blockquote {
+    border-left: 3px solid #4b5563;
     margin: 1.5em 0;
     padding-left: 1em;
-    color: #c6c6c6;
+    color: #9ca3af;
   }
 
   /* LaTeX blocks */
-  .blog-content [data-type="latex"] {
-    background: #f8f9fa;
+  .blog-content [data-type="latex"], .ProseMirror [data-type="latex"] {
+    background: #393939;
     padding: 1em;
     margin: 1.5em 0;
     border-radius: 4px;
@@ -106,39 +112,39 @@
   }
 
   /* Links */
-  .blog-content a {
+  .blog-content a, .ProseMirror a {
     color: #78a9ff;
     text-decoration: underline;
   }
 
-      body {
-        margin: 0;
-        padding: 0;
-        background: #1a1a1a;
-      }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a;
+  }
 
-      .metadata {
-        color: #aaa;
-        margin-bottom: 2rem;
-      }
+  .metadata {
+    color: #9ca3af;
+    margin-bottom: 2rem;
+  }
 
-      .metadata time {
-        margin-right: 1rem;
-      }
+  .metadata time {
+    margin-right: 1rem;
+  }
 
-      .tags {
-        margin: 1rem 0;
-      }
+  .tags {
+    margin: 1rem 0;
+  }
 
-      .tag {
-        display: inline-block;
-        background: #f0f0f0;
-        padding: 0.2em 0.6em;
-        border-radius: 3px;
-        margin-right: 0.5em;
-        font-size: 0.9em;
-        color: #555;
-      }
+  .tag {
+    display: inline-block;
+    background: #393939;
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    margin-right: 0.5em;
+    font-size: 0.9em;
+    color: #9ca3af;
+  }
   
       </style>
   </head>
