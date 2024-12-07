@@ -169,11 +169,24 @@
   <p>This is a story of how I made my own blogging system with AI (which you are reading on the same system). If you want to go through my reasons for why I made my own system, here they are [1] - but really speaking I wanted to have some fun building with AI! I have been wanting to have a nice blog/homepage for a good while now, and no better time to build it with AI assistants at your fingertips!</p>
   
   <p>Here I will describe my journey along with screenshots. I will also describe the strengths of AI assistants, how to guide them, and where they start hitting their limits. This post assumes some understanding of systems, programming, etc., but not at the level of an expert frontend engineer (which I am absolutely not, I do not even have basic expertise). In fact, I learned a lot during this journey as well as struggled figuring frontend things in this journey but my AI assistant was with me to help me through.</p>
+
+<div class="table-of-contents">
+  <h2>Table of Contents</h2>
+  <ul>
+    <li><a href="#step1">Step 1: Choose a capable frontier model</a></li>
+    <li><a href="#step2">Step 2: Brainstorm and tell this clearly to AI assistant</a></li>
+    <li><a href="#step3">Step 3: Direct AI assistant into incremental implementation</a></li>
+    <li><a href="#step4">Step 4: Start implementing in a planned way</a></li>
+    <li><a href="#step5">Step 5: Check-in after each phase</a></li>
+    <li><a href="#step6">Step 6, ...: Keep executing the plan, you might need new chat sessions</a></li>
+    <li><a href="#finally">Finally: Your PoC is reaching maturity and you are hitting AI's limits</a></li>
+  </ul>
+</div>
   
-  <h2>Step 1: Choose a capable frontier model.</h2>
+  <h2 id="step1">Step 1: Choose a capable frontier model.</h2>
   <p>I chose my current favorite: Claude Sonnet. Love the model and also its name!</p>
   
-  <h2>Step 2: Brainstorm and tell this clearly to AI assistant.</h2>
+  <h2 id="step2">Step 2: Brainstorm and tell this clearly to AI assistant.</h2>
   <p>AI models are trigger-happy to implement stuff and show off. They'd try to throw in bunch of optimizations, assuming you are an expert. This can really produce a big mess and it is best to stay away from it. What works for me is that I start brainstorming with the AI assistants and make it clear that I am not looking for the implementation. It is best to clarify the following things to the AI model the following things:</p>
   
   <ul>
@@ -220,11 +233,11 @@
   
   <p>which takes us to the third point.</p>
   
-  <h2>Step 3: Direct AI assistant into incremental implementation</h2>
+  <h2 id="step3">Step 3: Direct AI assistant into incremental implementation</h2>
   <p>We need to guide AI through iterative implementation, creating a Proof-of-Concept first and adding layers of finesse. Like "unpeeling" an onion. So, at this point I asked Claude to tone down its zeal and it came up with this nice plan.</p>
 
   <p><img src="./assets/screenshot-2024-12-03-at-10.24.36-pm.png" alt="Screenshot 2024-12-03 at 10.24.36 PM.png"></p>
-  <h2>Step 4: Start implementing in a planned way</h2>
+  <h2 id="step4">Step 4: Start implementing in a planned way</h2>
   
   <p>Once the high-level plan is done, it is time to go for the first iteration of the implementation. At this point, I asked Claude to help me plan for the Blog Creator part of the system. This is the phased plan it came up with.</p>
   
@@ -237,11 +250,11 @@
   
   <p><strong>Tip:</strong> For frontend projects, make Chrome DevTools your friend. Many times you can just paste the errors from the console in AI's chat session and ask it to fix it.</p>
   
-  <h2>Step 5: Check-in after each phase</h2>
+  <h2 id="step5">Step 5: Check-in after each phase</h2>
   <p>After each phase is complete, check-in to make sure all items are completed. Sometimes it catches some unfinished items, sometimes some items in future phase get completed as a byproduct. You can also ask to revise the phases at this stage.</p>
 
   <p><img src="./assets/screenshot-2024-12-03-at-10.43.40-pm.png" alt="Screenshot 2024-12-03 at 10.43.40 PM.png"></p>
-  <h2>Step 6, ... : Keep executing the plan, you might need new chat sessions.</h2>
+  <h2 id="step6">Step 6, ... : Keep executing the plan, you might need new chat sessions.</h2>
   
   <p>Keep going executing phases, checking in, and course-correcting. If the chat gets too long for the context size of AI models, then you will need to start a new chat.</p>
   
