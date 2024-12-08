@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello world</title>
     <meta name="author" content="Onkar Bhardwaj">
-    <meta name="date" content="Sun Dec 01 2024 00:00:00 GMT-0500 (Eastern Standard Time)">
+    <meta name="date" content="2024-12-01T05:00:00.000Z">
     <meta name="keywords" content="random">
     
     <!-- KaTeX for LaTeX rendering -->
@@ -15,19 +15,21 @@
     <style>
       
   /* Base content styling */
-  .blog-content, .ProseMirror {
+  .blog-content {
+    color: #f4f4f4;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  }
+
+  .ProseMirror {
     color: #f4f4f4;
     line-height: 1.6;
     min-height: 500px;
     padding: 1rem;
     outline: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  }
-
-  /* Add max-width only to blog-content (not editor) */
-  .blog-content {
-    max-width: 800px;
-    margin: 0 auto;
   }
 
   /* Paragraphs */
@@ -46,6 +48,7 @@
     font-size: 1.5em;
     color: #f4f4f4;
     margin: 2em 0 1em;
+    scroll-margin-top: 2rem;
   }
 
   /* Lists */
@@ -101,7 +104,6 @@
     color: #9ca3af;
   }
 
-  /* LaTeX blocks */
   .blog-content [data-type="latex"], .ProseMirror [data-type="latex"] {
     background: #393939;
     padding: 1em;
@@ -114,6 +116,48 @@
   .blog-content a, .ProseMirror a {
     color: #78a9ff;
     text-decoration: underline;
+  }
+
+  /* Table of Contents */
+  .toc {
+    background: #2d2d2d;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .toc h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #f4f4f4;
+  }
+
+  .toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin: 0.5rem 0;
+  }
+
+  .toc a {
+    color: #78a9ff;
+    text-decoration: none;
+  }
+
+  .toc a:hover {
+    text-decoration: underline;
+  }
+
+  /* Content containers */
+  .content-container, .toc-container {
+    padding: 0 1rem;
   }
 
 
@@ -154,7 +198,7 @@
         <header>
             <h1>Hello world</h1>
             <div class="metadata">
-                <time datetime="Sun Dec 01 2024 00:00:00 GMT-0500 (Eastern Standard Time)">12/1/2024</time>
+                <time datetime="2024-12-01T05:00:00.000Z">12/1/2024</time>
                 <span class="author">By Onkar Bhardwaj</span>
             </div>
             
