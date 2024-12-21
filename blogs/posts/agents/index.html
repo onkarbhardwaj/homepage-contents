@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agents</title>
+    <meta name="author" content="Onkar Bhardwaj">
+    <meta name="date" content="2024-12-21">
+    <meta name="keywords" content="ai">
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <style>
+      
+  /* Base content styling */
+  .blog-content {
+    color: #f4f4f4;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  }
+
+  .ProseMirror {
+    color: #f4f4f4;
+    line-height: 1.6;
+    min-height: 500px;
+    padding: 1rem;
+    outline: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  }
+
+  /* Paragraphs */
+  .blog-content p, .ProseMirror p {
+    margin: 1.5em 0;
+  }
+
+  /* Headers */
+  .blog-content h1, .ProseMirror h1 {
+    font-size: 2em;
+    color: #f4f4f4;
+    margin: 2em 0 1em;
+  }
+
+  .blog-content h2, .ProseMirror h2 {
+    font-size: 1.5em;
+    color: #f4f4f4;
+    margin: 2em 0 1em;
+    scroll-margin-top: 2rem;
+  }
+
+  /* Lists */
+  .blog-content ul, .blog-content ol,
+  .ProseMirror ul, .ProseMirror ol {
+    list-style-type: disc;
+    padding-left: 2em;
+    margin: 1em 0;
+  }
+
+  .blog-content ol, .ProseMirror ol {
+    list-style-type: decimal;
+  }
+
+  .blog-content li, .ProseMirror li {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Images */
+  .blog-content img, .ProseMirror img {
+    display: block;
+    max-width: 90%;
+    margin: 2em auto;
+    height: auto;
+  }
+
+  /* Code blocks */
+  .blog-content pre, .ProseMirror pre {
+    background: #2d2d2d;
+    color: #fff;
+    padding: 1em;
+    border-radius: 4px;
+    margin: 1.5em 0;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .blog-content code, .ProseMirror code {
+    background-color: #393939;
+    color: #f4f4f4;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  /* Blockquotes */
+  .blog-content blockquote, .ProseMirror blockquote {
+    border-left: 3px solid #4b5563;
+    margin: 1.5em 0;
+    padding-left: 1em;
+    color: #9ca3af;
+  }
+
+  /* Links */
+  .blog-content a, .ProseMirror a {
+    color: #78a9ff;
+    text-decoration: underline;
+  }
+
+  /* LaTeX blocks */
+  .blog-content [data-type="latex"], .ProseMirror [data-type="latex"] {
+    background: #393939;
+    padding: 1em;
+    margin: 1.5em 0;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  /* Table of Contents */
+  .toc {
+    background: #2d2d2d;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .toc h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #f4f4f4;
+  }
+
+  .toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin: 0.5rem 0;
+  }
+
+  .toc a {
+    color: #78a9ff;
+    text-decoration: none;
+  }
+
+  .toc a:hover {
+    text-decoration: underline;
+  }
+
+  /* Content containers */
+  .content-container, .toc-container {
+    padding: 0 1rem;
+  }
+
+
+      
+  body {
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a;
+  }
+
+  .metadata {
+    color: #9ca3af;
+    margin-bottom: 2rem;
+  }
+
+  .metadata time {
+    margin-right: 1rem;
+  }
+
+  .tags {
+    margin: 1rem 0;
+  }
+
+  .tag {
+    display: inline-block;
+    background: #393939;
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    margin-right: 0.5em;
+    font-size: 0.9em;
+    color: #9ca3af;
+  }
+
+    </style>
+</head>
+<body>
+    <article class="blog-content">
+        <header>
+            <h1>Agents</h1>
+            <div class="metadata">
+                <time datetime="2024-12-21">12/20/2024</time>
+                <span class="author">By Onkar Bhardwaj</span>
+            </div>
+            
+            <div class="tags">
+                <span class="tag">ai</span>
+            </div>
+            
+        </header>
+        <div class="content">
+            <p>There has been a lot of talk about agents recently, claiming that 2024 or 2025 will be an year of agents. What is a pragmatic approach to agents, though?</p>
+        </div>
+    </article>
+
+    <script>
+      // Render LaTeX equations
+      document.addEventListener('DOMContentLoaded', function() {
+        const latexElements = document.querySelectorAll('[data-type="latex"]');
+        latexElements.forEach(element => {
+          const equation = element.getAttribute('equation');
+          if (equation) {
+            katex.render(equation, element, {
+              throwOnError: false,
+              displayMode: true
+            });
+          }
+        });
+      });
+    </script>
+</body>
+</html>
