@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underabstracted is better than Overabstracted</title>
+    <meta name="author" content="Onkar Bhardwaj">
+    <meta name="date" content="2024-12-25">
+    <meta name="keywords" content="architecture">
+    <meta name="keywords" content="software">
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <style>
+      
+  /* Base content styling */
+  .blog-content {
+    color: #f4f4f4;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  }
+
+  .ProseMirror {
+    color: #f4f4f4;
+    line-height: 1.6;
+    min-height: 500px;
+    padding: 1rem;
+    outline: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  }
+
+  /* Paragraphs */
+  .blog-content p, .ProseMirror p {
+    margin: 1.5em 0;
+  }
+
+  /* Headers */
+  .blog-content h1, .ProseMirror h1 {
+    font-size: 2em;
+    color: #f4f4f4;
+    margin: 2em 0 1em;
+  }
+
+  .blog-content h2, .ProseMirror h2 {
+    font-size: 1.5em;
+    color: #f4f4f4;
+    margin: 2em 0 1em;
+    scroll-margin-top: 2rem;
+  }
+
+  /* Lists */
+  .blog-content ul, .blog-content ol,
+  .ProseMirror ul, .ProseMirror ol {
+    list-style-type: disc;
+    padding-left: 2em;
+    margin: 1em 0;
+  }
+
+  .blog-content ol, .ProseMirror ol {
+    list-style-type: decimal;
+  }
+
+  .blog-content li, .ProseMirror li {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Images */
+  .blog-content img, .ProseMirror img {
+    display: block;
+    max-width: 90%;
+    margin: 2em auto;
+    height: auto;
+  }
+
+  /* Code blocks */
+  .blog-content pre, .ProseMirror pre {
+    background: #2d2d2d;
+    color: #fff;
+    padding: 1em;
+    border-radius: 4px;
+    margin: 1.5em 0;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .blog-content code, .ProseMirror code {
+    background-color: #393939;
+    color: #f4f4f4;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  /* Blockquotes */
+  .blog-content blockquote, .ProseMirror blockquote {
+    border-left: 3px solid #4b5563;
+    margin: 1.5em 0;
+    padding-left: 1em;
+    color: #9ca3af;
+  }
+
+  /* Links */
+  .blog-content a, .ProseMirror a {
+    color: #78a9ff;
+    text-decoration: underline;
+  }
+
+  /* LaTeX blocks */
+  .blog-content [data-type="latex"], .ProseMirror [data-type="latex"] {
+    background: #393939;
+    padding: 1em;
+    margin: 1.5em 0;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  /* Table of Contents */
+  .toc {
+    background: #2d2d2d;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .toc h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #f4f4f4;
+  }
+
+  .toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc li {
+    margin: 0.5rem 0;
+  }
+
+  .toc a {
+    color: #78a9ff;
+    text-decoration: none;
+  }
+
+  .toc a:hover {
+    text-decoration: underline;
+  }
+
+  /* Content containers */
+  .content-container, .toc-container {
+    padding: 0 1rem;
+  }
+
+
+      
+  body {
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a;
+  }
+
+  .metadata {
+    color: #9ca3af;
+    margin-bottom: 2rem;
+  }
+
+  .metadata time {
+    margin-right: 1rem;
+  }
+
+  .tags {
+    margin: 1rem 0;
+  }
+
+  .tag {
+    display: inline-block;
+    background: #393939;
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    margin-right: 0.5em;
+    font-size: 0.9em;
+    color: #9ca3af;
+  }
+
+    </style>
+</head>
+<body>
+    <article class="blog-content">
+        <header>
+            <h1>Underabstracted is better than Overabstracted</h1>
+            <div class="metadata">
+                <time datetime="2024-12-25">12/24/2024</time>
+                <span class="author">By Onkar Bhardwaj</span>
+            </div>
+            
+            <div class="tags">
+                <span class="tag">architecture</span>
+                <span class="tag">software</span>
+            </div>
+            
+        </header>
+        <div class="content">
+            <p><img src="./assets/tower-of-abstraction-falling.jpg" alt="tower-of-abstraction-falling.jpg"></p><p>While learning Object-Oriented Programming (OOP), budding engineers are introduced to the concept of abstraction: Classes or Structures, instances of which could often map to the real world entities. This is followed by lessons in inheritance and polymorphism. It is rarely suggested that abstractions should be used with caution. Often times one comes across code that contains towers of abstractions, almost a litmus test of a software library poorly written.</p><p>Abstractions, while powerful, need to be used sparingly. This is one of the hard lessons experience has taught me (and reinforced by early Langchain experiences [1]). Going further, I'd say (slightly) underabstracted code is better than over-abstracted in practical situations. Below are some reasons why.</p><h2>1. You can't predict the future</h2><p>Business needs change over time. All requirements may not be known in advance. Under-abstracted code gives you more flexibility to adapt, by having less layers to un-peel. If the requirements change a lot, then you will need to do huge refactors, than if you leave some leeway by going easier on abstractions.</p><h2>2. Often abstractions are less useful than they seem</h2><p>If a base class has only one subclass, then what is exactly the point of the base class? Rather, minimize the code lines (and bugs), and leave yourself more flexibility in future. I've seen many interfaces and base classes that were created which were just sitting there, adding complexity without adding value.</p><h2>3. It is easier to debug and test</h2><p>Less layers of abstractions are easier to debug and understand - there is less loss of information along each layer. For example, see this experience with lagnchain [1]. It is also easier to write unit tests, as you need to test for less interfaces. When something goes wrong in production, you'll thank yourself for having direct, traceable code rather than having to jump through five layers of abstractions to figure out what's actually happening.</p><h2>4. DRY principle is over-used</h2><p>While DRY (Don't Repeat Yourself) is an important Software arch principle, a little bit of duplication is okay than force-fitting two related use-cases under one abstraction. What if in future these use-cases evolve differently? The abstractions could lose their meaning leading to refactors, or you may need to add duck-tapes to accommodate the evolution of use cases.</p><h2>5. Composition over Inheritance</h2><p>Prefer components that you can put together in different ways, even if that means you leave a little but of burden on the end-user to compose the components. At this point, there's so much stuff written about this, yet this needs to be said again and again. Small, focused components that do one thing well will always be more valuable than a complex inheritance hierarchy that tries to anticipate every possible use case.</p><p></p><p>[1]</p><p>There were so many times while troubleshooting I asked AI engineers if they knew the exact prompts that are going into LLM APIs, and consequently advised to start with simple API calls to model providers. If the use case is simple, that often sufficed and the engineers had more control (and less dependencies). Otherwise, after making sure of the prompts they thought should go into LLM APIs, bringing in Langchain was suggested. This helped them narrow down the issues. Also see recent <a target="_blank" rel="noopener noreferrer" class="link" href="https://www.anthropic.com/research/building-effective-agents">write-up by Anthropic</a> about agents where they explicit mentioned about using frameworks.<br></p><blockquote><p>We suggest that developers start by using LLM APIs directly: many patterns can be implemented in a few lines of code. If you do use a framework, ensure you understand the underlying code. Incorrect assumptions about what's under the hood are a common source of customer error.</p></blockquote><p>P.S.: Image courtesy mistral chat</p>
+        </div>
+    </article>
+
+    <script>
+      // Render LaTeX equations
+      document.addEventListener('DOMContentLoaded', function() {
+        const latexElements = document.querySelectorAll('[data-type="latex"]');
+        latexElements.forEach(element => {
+          const equation = element.getAttribute('equation');
+          if (equation) {
+            katex.render(equation, element, {
+              throwOnError: false,
+              displayMode: true
+            });
+          }
+        });
+      });
+    </script>
+</body>
+</html>
